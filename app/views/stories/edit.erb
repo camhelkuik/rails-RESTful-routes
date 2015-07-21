@@ -1,12 +1,11 @@
 <h2>Edit Story for <%= @user.email %></h2>
 
-  <form action="/users/<%= @user.id %>/stories/<%= @stories.id %>" method= "post">
+  <%= form_tag("/users/<%= @user.id %>/stories/<%= @stories.id %>", method: "post") do %>
     <p>New Story Info</p>
       
     <input type= "hidden" name="_method" value= "put">
     <input type="text" name="story[title]" value= "<%= @stories.title %>">
     
     <input type="submit">
-  </form>
-  
+<% end %>  
   

@@ -4,7 +4,7 @@ class LoginsController < ApplicationController
     @user = User.new
   end
   
-  def save_signup
+  def save_sign_up
     the_password = BCrypt::Password.create(params["user"]["password"])
     new_user = User.create({"email" => params["user"]["email"], "password" => the_password})
   

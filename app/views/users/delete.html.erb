@@ -1,5 +1,5 @@
 
-  <form action="/users/<%= params["users"]["id"] %>" method= "post">
+  <%= form_tag("/users/<%= params["users"]["id"] %>", method: "post") do %>
     <p>Pick story to delete</p>
     
     <select name= "users[id]">
@@ -11,5 +11,4 @@
     <input type= "hidden" name="_method" value= "delete">
     
     <input type="submit">
-  </form>
-
+<% end %>

@@ -1,7 +1,7 @@
 
-  <form action="/users/<%= @user.id %>/stories" method= "post">
+  <%= form_tag("/users/<%= @user.id %>/stories", method: "post") do %>
     <p>Enter Story</p>
     <input type="text" placeholder= "Story Title" name="story[title]">
     
     <input type="submit">
-  </form>
+  <% end %>

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   
   get "/" => 'logins#login'
   
-  post "/save_signup" => 'logins#save_signup'
+  post "/save_sign_up" => 'logins#save_sign_up'
   
   post "/verify_login" => 'logins#verify_login'
   
