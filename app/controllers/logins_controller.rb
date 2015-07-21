@@ -12,10 +12,11 @@ class LoginsController < ApplicationController
 
       session[:user_id] = new_user.id
 
-      redirect "/users/#{new_user.id}/stories"
+      redirect_to "/users/#{new_user.id}/stories"
     else
       @errors = "Invalid Login"
-      erb :"/logins/login"
+      
+      redirect_to "/logins/login"
     end
   end
     
@@ -32,17 +33,17 @@ class LoginsController < ApplicationController
     # actual_password = BCrypt::Password.new("$2a$10$87jFZs7pY2Fh33HR.lA9ouVLzevh45esv0UjdYF/b1jOGKC.YtfG2")
 
     if actual_password == attempted_password
-      redirect "/users/#{@user[0].id}/stories"
+      redirect_to "/users/#{@user[0].id}/stories"
     else
       @user.errors << "Invalid login."
     
-      erb :"/logins/login"
+      redirect_to "/logins/login"
     end
   end
     
   def logout
     session.clear
-    redirect "/"
+    redirect_to "/"
   end
 end
 

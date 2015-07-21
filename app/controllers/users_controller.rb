@@ -15,13 +15,12 @@ class UsersController < ApplicationController
     current_user
     User.delete(params["id"])
   
-    redirect "/users"
+    redirect_to "/users"
   end
   
   def edit
     current_user
     @users = User.find(params["id"])
-    erb :"/users/edit"
   end
   
   def save
@@ -31,7 +30,7 @@ class UsersController < ApplicationController
   
     @users.save
   
-    redirect "/users"
+    redirect_to "/users"
   end
   
 end

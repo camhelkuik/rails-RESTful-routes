@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
     if session[:user_id] == params["user_id"].to_i
       # @current_user = User.find(session[:user_id])
     else
-      redirect "/"
+      redirect_to "/"
     end
   end
   
@@ -24,7 +24,7 @@ class StoriesController < ApplicationController
   def save
     @story = Story.create({"title" => params["story"]["title"], "user_id" => params["user_id"]})
   
-    redirect "/users/#{params["user_id"]}/stories"
+    redirect_to "/users/#{params["user_id"]}/stories"
   end
   
   def delete
@@ -34,7 +34,7 @@ class StoriesController < ApplicationController
   
     @stories.delete
   
-    redirect "/users/#{params["user_id"]}/stories"
+    redirect_to "/users/#{params["user_id"]}/stories"
   end
   
   def edit
@@ -51,6 +51,6 @@ class StoriesController < ApplicationController
   
     @story.save
   
-    redirect "/users/#{params["user_id"]}/stories"
+    redirect_to "/users/#{params["user_id"]}/stories"
   end
 end
